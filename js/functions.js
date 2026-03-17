@@ -3,9 +3,26 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     let secciones = document.querySelectorAll(".section");
-    let botones = document.querySelectorAll(".btn-continuar");
+    let btnContinuar = document.querySelectorAll(".btn-continuar");
+    let btnVolver = document.querySelectorAll(".btn-volver");
 
-    botones.forEach(function(boton){
+    let progressBar = document.getElementById("progressBar");
+    let progressText = document.getElementById("progressText");
+
+    let total = secciones.length;
+
+    function actualizarProgreso(index){
+
+        let porcentaje = ((index + 1) / total) * 100;
+
+        progressBar.style.width = porcentaje + "%";
+        progressText.innerText = "Paso " + (index + 1) + " de " + total;
+
+    }
+
+    actualizarProgreso(0);
+
+    btnContinuar.forEach(function(boton){
 
         boton.addEventListener("click", function(){
 
@@ -16,13 +33,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if(secciones[index + 1]){
                 secciones[index + 1].classList.add("activa");
+                actualizarProgreso(index + 1);
             }
 
-            // Si era la última sección mostrar resultado
             if(index + 1 === secciones.length){
                 document.querySelector(".total-general").style.display = "block";
                 document.querySelector(".btn-success").style.display = "block";
                 document.querySelector(".output-section").style.display = "block";
+            }
+
+        });
+
+    });
+
+    btnVolver.forEach(function(boton){
+
+        boton.addEventListener("click", function(){
+
+            let actual = this.closest(".section");
+            let index = [...secciones].indexOf(actual);
+
+            if(index > 0){
+
+                actual.classList.remove("activa");
+                secciones[index - 1].classList.add("activa");
+
+                actualizarProgreso(index - 1);
+
             }
 
         });
