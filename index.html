@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <title>Formulario STATUS PEXT - Móvil</title>
+	
+</head>
+<body>
+    <div class="container">
+        <h1>📋 STATUS PEXT</h1>
+        
+        <div class="form-grid">
+            <!-- SECCIÓN 1: DATOS GENERALES DEL PROYECTO -->
+            <div class="section activa">
+                <h2>📌 DATOS GENERALES</h2>
+                <div class="id-group">
+                    <div class="form-group">
+                        <label>ID PROYECTO:</label>
+                        <input type="text" id="idProyectoNum" placeholder="Ej: 15249">
+                    </div>
+                    <div class="form-group">
+                        <label>NOMBRE PROYECTO:</label>
+                        <input type="text" id="idProyectoNombre" placeholder="Ej: GALILEO GALILEI 213">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>NODO:</label>
+                    <input type="text" id="nodo" placeholder="Ej: SANTA BEATRIZ">
+                </div>
+                <div class="coord-group">
+                    <div class="form-group">
+                        <label>LATITUD:</label>
+                        <input type="text" id="latitud" placeholder="-12.0689">
+                    </div>
+                    <div class="form-group">
+                        <label>LONGITUD:</label>
+                        <input type="text" id="longitud" placeholder="-77.0379">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>DISTRITO:</label>
+                    <input type="text" id="distrito" placeholder="Ej: LINCE">
+                </div>
+                <div class="inline-group">
+                    <div class="form-group">
+                        <label>TORRES:</label>
+                        <input type="text" id="torres" placeholder="Ej: 2">
+                    </div>
+                    <div class="form-group">
+                        <label>MONTANTES:</label>
+                        <input type="text" id="montantes" placeholder="Ej: 1">
+                    </div>
+                </div>
+                <div class="inline-group">
+                    <div class="form-group">
+                        <label>PISOS:</label>
+                        <input type="text" id="pisos" placeholder="Ej: 5">
+                    </div>
+                    <div class="form-group">
+                        <label>HP:</label>
+                        <input type="text" id="hp" placeholder="Ej: 16">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>DIRECCIÓN:</label>
+                    <input type="text" id="direccion" placeholder="Dirección completa">
+                </div>
+                <div class="inline-group">
+                    <div class="form-group">
+                        <label>INICIO:</label>
+                        <input type="text" id="fechaInicio" placeholder="DD/MM/AAAA">
+                    </div>
+                    <div class="form-group">
+                        <label>FIN:</label>
+                        <input type="text" id="fechaFin" placeholder="DD/MM/AAAA">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>SUPERVISOR:</label>
+                    <input type="text" id="supervisor" placeholder="Ej: JORDAN RAMOS">
+                </div>
+                <div class="inline-group">
+                    <div class="form-group">
+                        <label>CONTRATA:</label>
+                        <input type="text" id="contrata" placeholder="Ej: EJAS">
+                    </div>
+                    <div class="form-group">
+                        <label>CUADRILLA:</label>
+                        <input type="text" id="cuadrilla" placeholder="Ej: TI VERDE">
+                    </div>
+                </div>
+				
+			<!-- BOTON CONTINUAR -->
+			<button type="button" class="btn btn-primary btn-continuar">Continuar</button>
+			<!-- BOTON CONTINUAR -->
+            </div>
+
+            <!-- SECCIÓN 2: JUMPEO EN NODO -->
+            <div class="section">
+                <h2>🔄 JUMPEO EN NODO</h2>
+                
+                <div class="radio-group">
+                    <label style="margin-bottom: 0;">¿Hubo Jumpeo?</label>
+                    <div class="radio-option">
+                        <input type="radio" name="huboJumpeo" id="jumpeoSi" value="si" onclick="toggleJumpeo(true)">
+                        <label for="jumpeoSi">Sí</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="huboJumpeo" id="jumpeoNo" value="no" checked onclick="toggleJumpeo(false)">
+                        <label for="jumpeoNo">No</label>
+                    </div>
+                </div>
+                
+                <div id="camposJumpeo" style="display: none;">
+                    <div class="form-group">
+                        <label>FECHA:</label>
+                        <input type="text" id="jumpeoFecha" placeholder="DD/MM/AAAA">
+                    </div>
+                    <div class="form-group">
+                        <label>NODO:</label>
+                        <input type="text" id="jumpeoNodo" placeholder="Nodo">
+                    </div>
+                    <div class="form-group">
+                        <label>PATCH PANEL:</label>
+                        <input type="text" id="jumpeoPatchPanel" placeholder="Patch panel">
+                    </div>
+                    <div class="form-group">
+                        <label>HILO(S):</label>
+                        <input type="text" id="jumpeoHilo" placeholder="Ej: HILO 1-4">
+                    </div>
+                    <div class="form-group">
+                        <label>ODF_SLOT_OLT:</label>
+                        <input type="text" id="jumpeoOdf" placeholder="ODF34_SLOT2_OLT3">
+                    </div>
+                    <div class="form-group">
+                        <label>PATCH CORD:</label>
+                        <select id="jumpeoPatchCord">
+                            <option value="">-- Seleccionar --</option>
+                            <option value="PATCH CORD F.O S.M LSZH SIMPLEX LC/UPC -LC/UPC 2MM X 2MT">LC/UPC 2MT</option>
+                            <option value="PATCH CORD F.O S.M LSZH SIMPLEX LC/UPC -LC/UPC 2MM X 3MT">LC/UPC 3MT</option>
+                            <option value="PATCH CORD F.O S.M LSZH SIMPLEX LC/UPC -LC/UPC 2MM X 5MT">LC/UPC 5MT</option>
+                            <option value="PATCH CORD F.O SM LSZH SIMPLEX SC/UPC - LC/UPC 2MM X 10MT">SC/UPC-LC/UPC 10MT</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>ACCESO:</label>
+                        <input type="text" id="jumpeoAcceso" value="REMOTO" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>VISITAS A NODO:</label>
+                        <input type="text" id="jumpeoVisitas" placeholder="Número">
+                    </div>
+                </div>
+                
+                <div id="sinJumpeoMsg" style="color: #6c757d; font-style: italic; padding: 8px 0;">
+                    No se realizó jumpeo
+                </div>
+			<!-- BOTON VOLVER/CONTINUAR -->
+			<button type="button" class="btn-volver">Volver</button>
+			<button type="button" class="btn btn-primary btn-continuar">Continuar</button>
+			<!-- BOTON VOLVER/CONTINUAR -->
+            </div>
+
+            <!-- SECCIÓN 3: TENDIDO FIBRA OPTICA -->
+            <div class="section">
+                <h2>🔧 TENDIDO FIBRA OPTICA</h2>
+                
+                <div id="tendidosContainer">
+                    <div class="repeatable-section" id="tendido-0">
+                        <div class="repeatable-header">
+                            <h3>TENDIDO #1</h3>
+                            <button type="button" class="btn btn-danger" onclick="eliminarTendido(0)" style="display: none;">×</button>
+                        </div>
+                        <div class="form-group">
+                            <label>TIPO:</label>
+                            <select id="tendidoTipo_0" onchange="calcularTotalFibra()">
+                                <option value="">-- Seleccionar --</option>
+                                <option value="12H">12H</option>
+                                <option value="24H">24H</option>
+                                <option value="48H">48H</option>
+                                <option value="96H">96H</option>
+                            </select>
+                        </div>
+                        <div class="inline-group">
+                            <div class="form-group">
+                                <label>EXT:</label>
+                                <input type="number" id="tendidoExterno_0" placeholder="Metros" onchange="calcularTotalFibra()">
+                            </div>
+                            <div class="form-group">
+                                <label>INT:</label>
+                                <input type="number" id="tendidoInterno_0" placeholder="Metros" onchange="calcularTotalFibra()">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>OBS:</label>
+                            <input type="text" id="tendidoObs_0" placeholder="Ej: PRIMER TENDIDO">
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn btn-primary" onclick="agregarTendido()">+ Agregar TENDIDO</button>
+                
+                <div class="total-display" id="totalFibraDisplay">
+                    TOTAL: 0 METROS
+                </div>
+			<!-- BOTON VOLVER/CONTINUAR -->
+			<button type="button" class="btn-volver">Volver</button>
+			<button type="button" class="btn btn-primary btn-continuar">Continuar</button>
+			<!-- BOTON VOLVER/CONTINUAR -->
+            </div>
+
+            <!-- SECCIÓN 4: MUFAS INTERVENIDAS -->
+            <div class="section">
+                <h2>🔧 MUFAS INTERVENIDAS</h2>
+                <div id="mufasIntervenidasContainer">
+                    <div class="repeatable-section" id="mufaIntervenida-0">
+                        <div class="repeatable-header">
+                            <h3>MUFA INTERVENIDA #1</h3>
+                            <button type="button" class="btn btn-danger" onclick="eliminarMufaIntervenida(0)">×</button>
+                        </div>
+                        
+                        <div class="cantidad-empalmes">🔢 EMPALMES</div>
+                        <div class="form-group">
+                            <input type="number" id="mufaIntCantEmpalmes_0" placeholder="Cantidad" min="0" style="border: 2px solid #17a2b8;" onchange="calcularTotalesEmpalmes()">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>CÓDIGO:</label>
+                            <input type="text" id="mufaIntCodigo_0" placeholder="WN-130-DM-1343121">
+                        </div>
+                        <div class="form-group">
+                            <label>TIPO:</label>
+                            <input type="text" id="mufaIntTipo_0" placeholder="Ej: DOMO">
+                        </div>
+                        <div class="form-group">
+                            <label>NODO:</label>
+                            <input type="text" id="mufaIntNodo_0" placeholder="Nodo">
+                        </div>
+                        <div class="form-group">
+                            <label>ELEMENTO:</label>
+                            <input type="text" id="mufaIntElemento_0" placeholder="Ej: SPLITER 1X8">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>TRABAJO:</label>
+                            <select id="mufaIntTipoTrabajo_0" onchange="toggleTrabajoMufa(0)">
+                                <option value="verificacion">VERIFICACIÓN</option>
+                                <option value="empalme">EMPALME</option>
+                            </select>
+                        </div>
+                        
+                        <div id="mufaIntVerificacion_0" style="display: block;">
+                            <div class="form-group">
+                                <textarea id="mufaIntTrabajoVerif_0" placeholder="Detalle de verificación" rows="2"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div id="mufaIntEmpalme_0" style="display: none;">
+                            <div class="empalme-fields">
+                                <h4>📌 EMPALME</h4>
+                                <div class="form-group">
+                                    <label>ENTRADA:</label>
+                                    <input type="text" id="mufaIntEntrada_0" placeholder="Ej: H8-96H">
+                                </div>
+                                <div class="form-group">
+                                    <label>SALIDA:</label>
+                                    <input type="text" id="mufaIntSalida_0" placeholder="Ej: out 8- Splitter 1x8">
+                                </div>
+                                <div class="form-group">
+                                    <textarea id="mufaIntTrabajoEmp_0" placeholder="Descripción adicional" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="agregarMufaIntervenida()">+ Agregar MUFA</button>
+                
+                <div class="inline-group" style="margin-top: 12px;">
+                    <div class="form-group">
+                        <label>PUNTA:</label>
+                        <input type="text" id="mufasIntPunta" placeholder="Cantidad">
+                    </div>
+                    <div class="form-group">
+                        <label>SANGRADO:</label>
+                        <input type="text" id="mufasIntSangrado" placeholder="Cantidad">
+                    </div>
+                </div>
+                
+                <div class="total-display" id="totalEmpalmesIntDisplay" style="background: #17a2b8; color: white;">
+                    TOTAL EMPALMES: 0
+                </div>
+			<!-- BOTON VOLVER/CONTINUAR -->
+			<button type="button" class="btn-volver">Volver</button>
+			<button type="button" class="btn btn-primary btn-continuar">Continuar</button>
+			<!-- BOTON VOLVER/CONTINUAR -->
+            </div>
+
+            <!-- SECCIÓN 5: MUFAS INSTALADAS -->
+            <div class="section">
+                <h2>🆕 MUFAS INSTALADAS</h2>
+                <div id="mufasInstaladasContainer">
+                    <div class="repeatable-section" id="mufaInstalada-0">
+                        <div class="repeatable-header">
+                            <h3>MUFA NUEVA #1</h3>
+                            <button type="button" class="btn btn-danger" onclick="eliminarMufaInstalada(0)">×</button>
+                        </div>
+                        
+                        <div class="cantidad-empalmes" style="background: #28a745;">🔢 EMPALMES</div>
+                        <div class="form-group">
+                            <input type="number" id="mufaInsCantEmpalmes_0" placeholder="Cantidad" min="0" style="border: 2px solid #28a745;" onchange="calcularTotalesEmpalmes()">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>TIPO:</label>
+                            <input type="text" id="mufaInsTipo_0" placeholder="Ej: DOMO">
+                        </div>
+                        <div class="form-group">
+                            <label>CÓDIGO:</label>
+                            <input type="text" id="mufaInsCodigo_0" placeholder="WN-130-DM-2428616">
+                        </div>
+                        
+                        <div class="coord-group">
+                            <div class="form-group">
+                                <label>LAT:</label>
+                                <input type="text" id="mufaInsLatitud_0" placeholder="-12.069163">
+                            </div>
+                            <div class="form-group">
+                                <label>LON:</label>
+                                <input type="text" id="mufaInsLongitud_0" placeholder="-77.037885">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>TRABAJO:</label>
+                            <select id="mufaInsTipoTrabajo_0" onchange="toggleTrabajoMufaInstalada(0)">
+                                <option value="verificacion">VERIFICACIÓN</option>
+                                <option value="empalme">EMPALME</option>
+                            </select>
+                        </div>
+                        
+                        <div id="mufaInsVerificacion_0" style="display: block;">
+                            <div class="form-group">
+                                <textarea id="mufaInsTrabajoVerif_0" placeholder="Detalle de verificación" rows="2"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div id="mufaInsEmpalme_0" style="display: none;">
+                            <div class="empalme-fields">
+                                <h4>📌 EMPALME</h4>
+                                <div class="form-group">
+                                    <label>ENTRADA:</label>
+                                    <input type="text" id="mufaInsEntrada_0" placeholder="Ej: H8-96H">
+                                </div>
+                                <div class="form-group">
+                                    <label>SALIDA:</label>
+                                    <input type="text" id="mufaInsSalida_0" placeholder="Ej: out 8- Splitter 1x8">
+                                </div>
+                                <div class="form-group">
+                                    <textarea id="mufaInsTrabajoEmp_0" placeholder="Descripción adicional" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="inline-group">
+                            <div class="form-group">
+                                <label>PUNTA:</label>
+                                <input type="text" id="mufaInsPunta_0" placeholder="Cantidad">
+                            </div>
+                            <div class="form-group">
+                                <label>SANGRADO:</label>
+                                <input type="text" id="mufaInsSangrado_0" placeholder="Cantidad">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="agregarMufaInstalada()">+ Agregar MUFA</button>
+                
+                <div class="total-display" id="totalEmpalmesInsDisplay" style="background: #28a745; color: white; margin-top: 12px;">
+                    TOTAL EMPALMES: 0
+                </div>
+			<!-- BOTON VOLVER/CONTINUAR -->
+			<button type="button" class="btn-volver">Volver</button>
+			<button type="button" class="btn btn-primary btn-continuar">Continuar</button>
+			<!-- BOTON VOLVER/CONTINUAR -->
+            </div>
+
+            <!-- SECCIÓN 6: NAPS HABILITADAS -->
+            <div class="section">
+                <h2>📡 NAPS HABILITADAS</h2>
+                <div id="napsContainer">
+                    <div class="repeatable-section" id="nap-0">
+                        <div class="repeatable-header">
+                            <h3>NAP #1</h3>
+                            <button type="button" class="btn btn-danger" onclick="eliminarNap(0)">×</button>
+                        </div>
+                        <div class="form-group">
+                            <label>TIPO:</label>
+                            <input type="text" id="napTipo_0" placeholder="DIXON o BLANCA">
+                        </div>
+                        <div class="form-group">
+                            <label>CÓDIGO:</label>
+                            <input type="text" id="napCodigo_0" placeholder="WN-130-2428617" onchange="calcularTotalNaps()">
+                        </div>
+                        
+                        <div class="inline-group">
+                            <div class="form-group">
+                                <label>PISO:</label>
+                                <input type="text" id="napPiso_0" placeholder="Ej: 1">
+                            </div>
+                            <div class="form-group">
+                                <label>TORRE:</label>
+                                <input type="text" id="napTorre_0" placeholder="A">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>POTENCIA (dBm):</label>
+                            <input type="text" id="napPotencia_0" placeholder="-19.73">
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="agregarNap()">+ Agregar NAP</button>
+                
+                <div class="total-display" id="totalNapsDisplay" style="background: #007bff; color: white; margin-top: 12px;">
+                    TOTAL NAPS: 0
+                </div>
+                
+                <h3 style="margin-top: 15px;">📊 PREPARACIÓN NAPS</h3>
+                <div class="inline-group">
+                    <div class="form-group">
+                        <label>PUNTA:</label>
+                        <input type="text" id="prepPunta" placeholder="Cantidad">
+                    </div>
+                    <div class="form-group">
+                        <label>SANGRADO:</label>
+                        <input type="text" id="prepSangrado" placeholder="Cantidad">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>TOTAL EMPALMES:</label>
+                    <input type="text" id="prepTotalEmpalmes" placeholder="Total">
+                </div>
+			<!-- BOTON VOLVER/CONTINUAR -->
+			<button type="button" class="btn-volver">Volver</button>
+			<button type="button" class="btn btn-primary btn-continuar">Continuar</button>
+			<!-- BOTON VOLVER/CONTINUAR -->
+            </div>
+
+            <!-- SECCIÓN 7: FERRETERÍA -->
+            <div class="section">
+                <h2>🔩 FERRETERÍA</h2>
+                <div class="ferreteria-grid">
+                    <div class="form-group">
+                        <label>CANALETA:</label>
+                        <input type="text" id="ferrCanaleta" placeholder="Cantidad">
+                    </div>
+                    <div class="form-group">
+                        <label>REDUCTOR:</label>
+                        <input type="text" id="ferrReductor" placeholder="Cantidad">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>BRAZO EXTENSOR:</label>
+                        <div class="select-cantidad">
+                            <select id="ferrBrazoTipo">
+                                <option value="">Tipo</option>
+                                <option value="BRAZOS EXPANSORES DE 1 MT">1 MT</option>
+                                <option value="BRAZOS EXPANSORES DE 0.6 MT">0.6 MT</option>
+                                <option value="BRAZOS EXPANSORES DE 0.8 MT">0.8 MT</option>
+                                <option value="BRAZOS EXPANSORES DE 0.4 MT">0.4 MT</option>
+                            </select>
+                            <input type="text" id="ferrBrazoCant" placeholder="Cant">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>CRUCETA:</label>
+                        <input type="text" id="ferrCruceta" placeholder="Cantidad">
+                    </div>
+                    <div class="form-group">
+                        <label>PREFORMADOS:</label>
+                        <input type="text" id="ferrPreformados" placeholder="Cantidad">
+                    </div>
+                    <div class="form-group">
+                        <label>PORTA LINEA:</label>
+                        <input type="text" id="ferrClevis" placeholder="Cantidad">
+                    </div>
+                    <div class="form-group">
+                        <label>CABLE ACERADO:</label>
+                        <input type="text" id="ferrCableAcerado" placeholder="Metraje">
+                    </div>
+                    <div class="form-group">
+                        <label>CHAPA TENSORA:</label>
+                        <input type="text" id="ferrChapa" placeholder="Cantidad">
+                    </div>
+                </div>
+			<!-- BOTON VOLVER/CONTINUAR -->
+			<button type="button" class="btn-volver">Volver</button>
+			<button type="button" class="btn btn-primary btn-continuar">Continuar</button>
+			<!-- BOTON VOLVER/CONTINUAR -->
+            </div>
+
+            <!-- SECCIÓN 8: MATERIAL PLANTA INTERNA -->
+            <div class="section">
+                <h2>🏢 MATERIAL PLANTA INTERNA</h2>
+                
+                <div class="form-group">
+                    <label>TUBERIA:</label>
+                    <div class="select-cantidad">
+                        <select id="matTuberiaTipo">
+                            <option value="">Tipo</option>
+                            <option value="TUBO CONDUIT PVC FLEXIBLE DE 3/4 PULG - CLIENTE">CONDUIT FLEX 3/4"</option>
+                            <option value="TUBO CONDUIT RIGIDO EMT DE 1/2 X 3MTS">EMT 1/2" x 3m</option>
+                            <option value="TUBO CONDUIT RIGIDO EMT DE 3/4 X 3MTS">EMT 3/4" x 3m</option>
+                            <option value="TUBO CONDUIT RIGIDO EMT DE 1 X 3MTS">EMT 1" x 3m</option>
+                            <option value="TUBO CONDUIT RIGIDO EMT DE 1 1/2 X 3MTS">EMT 1 1/2" x 3m</option>
+                            <option value="TUBO CONDUIT RIGIDO EMT DE 2 X 3MTS">EMT 2" x 3m</option>
+                            <option value="TUBO CORRUGADO PVC DE 3/4 PULG - CLIENTE">CORRUGADO 3/4"</option>
+                            <option value="TUBO CORRUGADO PVC DE 1 PULG - CLIENTE">CORRUGADO 1"</option>
+                            <option value="TUBO PVC SAP DE 3/4 PULG - CLIENTE">PVC SAP 3/4"</option>
+                            <option value="TUBO PVC SAP DE 1 PULG - CLIENTE">PVC SAP 1"</option>
+                            <option value="CANALETA PLÁSTICA 40X25MM S/DIVISIÓN - CLIENTE">CANALETA 40x25</option>
+                            <option value="CANALETA 60X40 S/DIVISION DEXSON - CLIENTE">CANALETA 60x40</option>
+                            <option value="CANALETA PLASTICA 32 X 16 LEGRAND - CLIENTE">CANALETA 32x16</option>
+                        </select>
+                        <input type="text" id="matTuberiaMetraje" placeholder="MTS">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>CAJA METÁLICA:</label>
+                    <div class="select-cantidad">
+                        <select id="matCajaTipo">
+                            <option value="">Tipo</option>
+                            <option value="CAJA DE PASO 600 X 400 X 200 - CLIENTE">600x400x200</option>
+                            <option value="CAJA DE PASO 60 X 60 X 40 - CLIENTE">60x60x40 (6x6x4)</option>
+                            <option value="CAJA DE PASO 80 X 80 X 40 - CLIENTE">80x80x40 (8x8x4)</option>
+                            <option value="CAJA DE PASE METALICA 30X30X15CM">30x30x15cm</option>
+                        </select>
+                        <input type="text" id="matCajaCant" placeholder="Cant">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>DUCTO:</label>
+                    <input type="text" id="matDucto" placeholder="Ej: PVC 2 10M">
+                </div>
+			<!-- BOTON VOLVER/CONTINUAR -->
+			<button type="button" class="btn-volver">Volver</button>
+			<button type="button" class="btn btn-primary btn-continuar">Continuar</button>
+			<!-- BOTON VOLVER/CONTINUAR -->
+            </div>
+
+            <!-- SECCIÓN 9: INFRAESTRUCTURA DE TERCEROS -->
+            <div class="section">
+                <h2>🏗 INFRAESTRUCTURA TERCEROS</h2>
+                <div class="inline-group">
+                    <div class="form-group">
+                        <label>POSTES:</label>
+                        <input type="text" id="infPostes" placeholder="Cantidad">
+                    </div>
+                    <div class="form-group">
+                        <label>OPERADOR:</label>
+                        <input type="text" id="infOperador1" placeholder="CLARO">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>CANALIZADO:</label>
+                    <input type="text" id="infCanalizado" placeholder="EXISTENTE / NUEVO">
+                </div>
+                <div class="form-group">
+                    <label>OPERADOR:</label>
+                    <input type="text" id="infOperador2" placeholder="TDP">
+                </div>
+			<!-- BOTON VOLVER/CONTINUAR -->
+			<button type="button" class="btn-volver">Volver</button>
+			<button type="button" class="btn btn-primary btn-continuar">Continuar</button>
+			<!-- BOTON VOLVER/CONTINUAR -->
+            </div>
+
+            <!-- SECCIÓN 10: TRABAJOS ADICIONALES -->
+            <div class="section">
+                <h2>📝 ADICIONALES</h2>
+                <div class="form-group">
+                    <textarea id="trabajosAdicionales" rows="3" placeholder="Observaciones, incidencias, etc."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>RESULTADO:</label>
+                    <input type="text" id="resultadoFinal" value="PREDIO_PEXT_HABILITADO">
+                </div>
+			<!-- BOTON VOLVER/CONTINUAR -->
+			<button type="button" class="btn-volver">Volver</button>
+			<button type="button" class="btn btn-procesar btn-continuar">Procesar Datos</button>
+			<!-- BOTON VOLVER/CONTINUAR -->
+            </div>
+        </div>
+
+        <!-- TOTAL GENERAL DE EMPALMES -->
+        <div class="total-general" id="totalGeneralEmpalmes">
+            TOTAL EMPALMES: 0
+        </div>
+
+        <!-- BOTÓN GENERAR -->
+        <button class="btn btn-success" onclick="generarTexto()">📄 GENERAR TEXTO</button>
+
+        <!-- SECCIÓN DE RESULTADO -->
+        <div class="output-section">
+            <h2>📋 TEXTO GENERADO</h2>
+            <div id="outputText"></div>
+            <button class="copy-btn" onclick="copiarTexto()">📋 COPIAR</button>
+        </div>
+    </div>
+
+<!-- ARREGLOS MATIAS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+<script src="js/functions.js"></script>
+<!-- ARREGLOS MATIAS -->
+</body>
+
+
+</html>
