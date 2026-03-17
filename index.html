@@ -7,17 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <title>Formulario STATUS PEXT - Móvil</title>
+    <title>Formulario STATUS PEXT - M贸vil</title>
 	
 </head>
 <body>
     <div class="container">
-        <h1>📋 STATUS PEXT</h1>
-        
+        <h1>馃搵 STATUS PEXT</h1>
+		
+		<!-- BARRA DE PROGRESO -->
+		<div class="progress-container">
+			<div class="progress-bar" id="progressBar"></div>
+		</div>
+
+		<div class="progress-text" id="progressText">
+			Paso 1 de 10
+		</div>
+        <!-- BARRA DE PROGRESO -->
+		
+		
         <div class="form-grid">
-            <!-- SECCIÓN 1: DATOS GENERALES DEL PROYECTO -->
+            <!-- SECCI脫N 1: DATOS GENERALES DEL PROYECTO -->
             <div class="section activa">
-                <h2>📌 DATOS GENERALES</h2>
+                <h2>馃搶 DATOS GENERALES</h2>
                 <div class="id-group">
                     <div class="form-group">
                         <label>ID PROYECTO:</label>
@@ -67,8 +78,8 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>DIRECCIÓN:</label>
-                    <input type="text" id="direccion" placeholder="Dirección completa">
+                    <label>DIRECCI脫N:</label>
+                    <input type="text" id="direccion" placeholder="Direcci贸n completa">
                 </div>
                 <div class="inline-group">
                     <div class="form-group">
@@ -100,15 +111,15 @@
 			<!-- BOTON CONTINUAR -->
             </div>
 
-            <!-- SECCIÓN 2: JUMPEO EN NODO -->
+            <!-- SECCI脫N 2: JUMPEO EN NODO -->
             <div class="section">
-                <h2>🔄 JUMPEO EN NODO</h2>
+                <h2>馃攧 JUMPEO EN NODO</h2>
                 
                 <div class="radio-group">
-                    <label style="margin-bottom: 0;">¿Hubo Jumpeo?</label>
+                    <label style="margin-bottom: 0;">驴Hubo Jumpeo?</label>
                     <div class="radio-option">
                         <input type="radio" name="huboJumpeo" id="jumpeoSi" value="si" onclick="toggleJumpeo(true)">
-                        <label for="jumpeoSi">Sí</label>
+                        <label for="jumpeoSi">S铆</label>
                     </div>
                     <div class="radio-option">
                         <input type="radio" name="huboJumpeo" id="jumpeoNo" value="no" checked onclick="toggleJumpeo(false)">
@@ -153,28 +164,28 @@
                     </div>
                     <div class="form-group">
                         <label>VISITAS A NODO:</label>
-                        <input type="text" id="jumpeoVisitas" placeholder="Número">
+                        <input type="text" id="jumpeoVisitas" placeholder="N煤mero">
                     </div>
                 </div>
                 
                 <div id="sinJumpeoMsg" style="color: #6c757d; font-style: italic; padding: 8px 0;">
-                    No se realizó jumpeo
+                    No se realiz贸 jumpeo
                 </div>
 			<!-- BOTON VOLVER/CONTINUAR -->
-			<button type="button" class="btn-volver">Volver</button>
+			<button type="button" class="btn btn-volver">Volver</button>
 			<button type="button" class="btn btn-primary btn-continuar">Continuar</button>
 			<!-- BOTON VOLVER/CONTINUAR -->
             </div>
 
-            <!-- SECCIÓN 3: TENDIDO FIBRA OPTICA -->
+            <!-- SECCI脫N 3: TENDIDO FIBRA OPTICA -->
             <div class="section">
-                <h2>🔧 TENDIDO FIBRA OPTICA</h2>
+                <h2>馃敡 TENDIDO FIBRA OPTICA</h2>
                 
                 <div id="tendidosContainer">
                     <div class="repeatable-section" id="tendido-0">
                         <div class="repeatable-header">
                             <h3>TENDIDO #1</h3>
-                            <button type="button" class="btn btn-danger" onclick="eliminarTendido(0)" style="display: none;">×</button>
+                            <button type="button" class="btn btn-danger" onclick="eliminarTendido(0)" style="display: none;">脳</button>
                         </div>
                         <div class="form-group">
                             <label>TIPO:</label>
@@ -209,28 +220,28 @@
                     TOTAL: 0 METROS
                 </div>
 			<!-- BOTON VOLVER/CONTINUAR -->
-			<button type="button" class="btn-volver">Volver</button>
+			<button type="button" class="btn btn-volver">Volver</button>
 			<button type="button" class="btn btn-primary btn-continuar">Continuar</button>
 			<!-- BOTON VOLVER/CONTINUAR -->
             </div>
 
-            <!-- SECCIÓN 4: MUFAS INTERVENIDAS -->
+            <!-- SECCI脫N 4: MUFAS INTERVENIDAS -->
             <div class="section">
-                <h2>🔧 MUFAS INTERVENIDAS</h2>
+                <h2>馃敡 MUFAS INTERVENIDAS</h2>
                 <div id="mufasIntervenidasContainer">
                     <div class="repeatable-section" id="mufaIntervenida-0">
                         <div class="repeatable-header">
                             <h3>MUFA INTERVENIDA #1</h3>
-                            <button type="button" class="btn btn-danger" onclick="eliminarMufaIntervenida(0)">×</button>
+                            <button type="button" class="btn btn-danger" onclick="eliminarMufaIntervenida(0)">脳</button>
                         </div>
                         
-                        <div class="cantidad-empalmes">🔢 EMPALMES</div>
+                        <div class="cantidad-empalmes">馃敘 EMPALMES</div>
                         <div class="form-group">
                             <input type="number" id="mufaIntCantEmpalmes_0" placeholder="Cantidad" min="0" style="border: 2px solid #17a2b8;" onchange="calcularTotalesEmpalmes()">
                         </div>
                         
                         <div class="form-group">
-                            <label>CÓDIGO:</label>
+                            <label>C脫DIGO:</label>
                             <input type="text" id="mufaIntCodigo_0" placeholder="WN-130-DM-1343121">
                         </div>
                         <div class="form-group">
@@ -249,20 +260,20 @@
                         <div class="form-group">
                             <label>TRABAJO:</label>
                             <select id="mufaIntTipoTrabajo_0" onchange="toggleTrabajoMufa(0)">
-                                <option value="verificacion">VERIFICACIÓN</option>
+                                <option value="verificacion">VERIFICACI脫N</option>
                                 <option value="empalme">EMPALME</option>
                             </select>
                         </div>
                         
                         <div id="mufaIntVerificacion_0" style="display: block;">
                             <div class="form-group">
-                                <textarea id="mufaIntTrabajoVerif_0" placeholder="Detalle de verificación" rows="2"></textarea>
+                                <textarea id="mufaIntTrabajoVerif_0" placeholder="Detalle de verificaci贸n" rows="2"></textarea>
                             </div>
                         </div>
                         
                         <div id="mufaIntEmpalme_0" style="display: none;">
                             <div class="empalme-fields">
-                                <h4>📌 EMPALME</h4>
+                                <h4>馃搶 EMPALME</h4>
                                 <div class="form-group">
                                     <label>ENTRADA:</label>
                                     <input type="text" id="mufaIntEntrada_0" placeholder="Ej: H8-96H">
@@ -272,7 +283,7 @@
                                     <input type="text" id="mufaIntSalida_0" placeholder="Ej: out 8- Splitter 1x8">
                                 </div>
                                 <div class="form-group">
-                                    <textarea id="mufaIntTrabajoEmp_0" placeholder="Descripción adicional" rows="2"></textarea>
+                                    <textarea id="mufaIntTrabajoEmp_0" placeholder="Descripci贸n adicional" rows="2"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -295,22 +306,22 @@
                     TOTAL EMPALMES: 0
                 </div>
 			<!-- BOTON VOLVER/CONTINUAR -->
-			<button type="button" class="btn-volver">Volver</button>
+			<button type="button" class="btn btn-volver">Volver</button>
 			<button type="button" class="btn btn-primary btn-continuar">Continuar</button>
 			<!-- BOTON VOLVER/CONTINUAR -->
             </div>
 
-            <!-- SECCIÓN 5: MUFAS INSTALADAS -->
+            <!-- SECCI脫N 5: MUFAS INSTALADAS -->
             <div class="section">
-                <h2>🆕 MUFAS INSTALADAS</h2>
+                <h2>馃啎 MUFAS INSTALADAS</h2>
                 <div id="mufasInstaladasContainer">
                     <div class="repeatable-section" id="mufaInstalada-0">
                         <div class="repeatable-header">
                             <h3>MUFA NUEVA #1</h3>
-                            <button type="button" class="btn btn-danger" onclick="eliminarMufaInstalada(0)">×</button>
+                            <button type="button" class="btn btn-danger" onclick="eliminarMufaInstalada(0)">脳</button>
                         </div>
                         
-                        <div class="cantidad-empalmes" style="background: #28a745;">🔢 EMPALMES</div>
+                        <div class="cantidad-empalmes" style="background: #28a745;">馃敘 EMPALMES</div>
                         <div class="form-group">
                             <input type="number" id="mufaInsCantEmpalmes_0" placeholder="Cantidad" min="0" style="border: 2px solid #28a745;" onchange="calcularTotalesEmpalmes()">
                         </div>
@@ -320,7 +331,7 @@
                             <input type="text" id="mufaInsTipo_0" placeholder="Ej: DOMO">
                         </div>
                         <div class="form-group">
-                            <label>CÓDIGO:</label>
+                            <label>C脫DIGO:</label>
                             <input type="text" id="mufaInsCodigo_0" placeholder="WN-130-DM-2428616">
                         </div>
                         
@@ -338,20 +349,20 @@
                         <div class="form-group">
                             <label>TRABAJO:</label>
                             <select id="mufaInsTipoTrabajo_0" onchange="toggleTrabajoMufaInstalada(0)">
-                                <option value="verificacion">VERIFICACIÓN</option>
+                                <option value="verificacion">VERIFICACI脫N</option>
                                 <option value="empalme">EMPALME</option>
                             </select>
                         </div>
                         
                         <div id="mufaInsVerificacion_0" style="display: block;">
                             <div class="form-group">
-                                <textarea id="mufaInsTrabajoVerif_0" placeholder="Detalle de verificación" rows="2"></textarea>
+                                <textarea id="mufaInsTrabajoVerif_0" placeholder="Detalle de verificaci贸n" rows="2"></textarea>
                             </div>
                         </div>
                         
                         <div id="mufaInsEmpalme_0" style="display: none;">
                             <div class="empalme-fields">
-                                <h4>📌 EMPALME</h4>
+                                <h4>馃搶 EMPALME</h4>
                                 <div class="form-group">
                                     <label>ENTRADA:</label>
                                     <input type="text" id="mufaInsEntrada_0" placeholder="Ej: H8-96H">
@@ -361,7 +372,7 @@
                                     <input type="text" id="mufaInsSalida_0" placeholder="Ej: out 8- Splitter 1x8">
                                 </div>
                                 <div class="form-group">
-                                    <textarea id="mufaInsTrabajoEmp_0" placeholder="Descripción adicional" rows="2"></textarea>
+                                    <textarea id="mufaInsTrabajoEmp_0" placeholder="Descripci贸n adicional" rows="2"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -384,26 +395,26 @@
                     TOTAL EMPALMES: 0
                 </div>
 			<!-- BOTON VOLVER/CONTINUAR -->
-			<button type="button" class="btn-volver">Volver</button>
+			<button type="button" class="btn btn-volver">Volver</button>
 			<button type="button" class="btn btn-primary btn-continuar">Continuar</button>
 			<!-- BOTON VOLVER/CONTINUAR -->
             </div>
 
-            <!-- SECCIÓN 6: NAPS HABILITADAS -->
+            <!-- SECCI脫N 6: NAPS HABILITADAS -->
             <div class="section">
-                <h2>📡 NAPS HABILITADAS</h2>
+                <h2>馃摗 NAPS HABILITADAS</h2>
                 <div id="napsContainer">
                     <div class="repeatable-section" id="nap-0">
                         <div class="repeatable-header">
                             <h3>NAP #1</h3>
-                            <button type="button" class="btn btn-danger" onclick="eliminarNap(0)">×</button>
+                            <button type="button" class="btn btn-danger" onclick="eliminarNap(0)">脳</button>
                         </div>
                         <div class="form-group">
                             <label>TIPO:</label>
                             <input type="text" id="napTipo_0" placeholder="DIXON o BLANCA">
                         </div>
                         <div class="form-group">
-                            <label>CÓDIGO:</label>
+                            <label>C脫DIGO:</label>
                             <input type="text" id="napCodigo_0" placeholder="WN-130-2428617" onchange="calcularTotalNaps()">
                         </div>
                         
@@ -430,7 +441,7 @@
                     TOTAL NAPS: 0
                 </div>
                 
-                <h3 style="margin-top: 15px;">📊 PREPARACIÓN NAPS</h3>
+                <h3 style="margin-top: 15px;">馃搳 PREPARACI脫N NAPS</h3>
                 <div class="inline-group">
                     <div class="form-group">
                         <label>PUNTA:</label>
@@ -446,14 +457,14 @@
                     <input type="text" id="prepTotalEmpalmes" placeholder="Total">
                 </div>
 			<!-- BOTON VOLVER/CONTINUAR -->
-			<button type="button" class="btn-volver">Volver</button>
+			<button type="button" class="btn btn-volver">Volver</button>
 			<button type="button" class="btn btn-primary btn-continuar">Continuar</button>
 			<!-- BOTON VOLVER/CONTINUAR -->
             </div>
 
-            <!-- SECCIÓN 7: FERRETERÍA -->
+            <!-- SECCI脫N 7: FERRETER脥A -->
             <div class="section">
-                <h2>🔩 FERRETERÍA</h2>
+                <h2>馃敥 FERRETER脥A</h2>
                 <div class="ferreteria-grid">
                     <div class="form-group">
                         <label>CANALETA:</label>
@@ -500,14 +511,14 @@
                     </div>
                 </div>
 			<!-- BOTON VOLVER/CONTINUAR -->
-			<button type="button" class="btn-volver">Volver</button>
+			<button type="button" class="btn btn-volver">Volver</button>
 			<button type="button" class="btn btn-primary btn-continuar">Continuar</button>
 			<!-- BOTON VOLVER/CONTINUAR -->
             </div>
 
-            <!-- SECCIÓN 8: MATERIAL PLANTA INTERNA -->
+            <!-- SECCI脫N 8: MATERIAL PLANTA INTERNA -->
             <div class="section">
-                <h2>🏢 MATERIAL PLANTA INTERNA</h2>
+                <h2>馃彚 MATERIAL PLANTA INTERNA</h2>
                 
                 <div class="form-group">
                     <label>TUBERIA:</label>
@@ -524,7 +535,7 @@
                             <option value="TUBO CORRUGADO PVC DE 1 PULG - CLIENTE">CORRUGADO 1"</option>
                             <option value="TUBO PVC SAP DE 3/4 PULG - CLIENTE">PVC SAP 3/4"</option>
                             <option value="TUBO PVC SAP DE 1 PULG - CLIENTE">PVC SAP 1"</option>
-                            <option value="CANALETA PLÁSTICA 40X25MM S/DIVISIÓN - CLIENTE">CANALETA 40x25</option>
+                            <option value="CANALETA PL脕STICA 40X25MM S/DIVISI脫N - CLIENTE">CANALETA 40x25</option>
                             <option value="CANALETA 60X40 S/DIVISION DEXSON - CLIENTE">CANALETA 60x40</option>
                             <option value="CANALETA PLASTICA 32 X 16 LEGRAND - CLIENTE">CANALETA 32x16</option>
                         </select>
@@ -533,7 +544,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>CAJA METÁLICA:</label>
+                    <label>CAJA MET脕LICA:</label>
                     <div class="select-cantidad">
                         <select id="matCajaTipo">
                             <option value="">Tipo</option>
@@ -551,14 +562,14 @@
                     <input type="text" id="matDucto" placeholder="Ej: PVC 2 10M">
                 </div>
 			<!-- BOTON VOLVER/CONTINUAR -->
-			<button type="button" class="btn-volver">Volver</button>
+			<button type="button" class="btn btn-volver">Volver</button>
 			<button type="button" class="btn btn-primary btn-continuar">Continuar</button>
 			<!-- BOTON VOLVER/CONTINUAR -->
             </div>
 
-            <!-- SECCIÓN 9: INFRAESTRUCTURA DE TERCEROS -->
+            <!-- SECCI脫N 9: INFRAESTRUCTURA DE TERCEROS -->
             <div class="section">
-                <h2>🏗 INFRAESTRUCTURA TERCEROS</h2>
+                <h2>馃彈 INFRAESTRUCTURA TERCEROS</h2>
                 <div class="inline-group">
                     <div class="form-group">
                         <label>POSTES:</label>
@@ -578,14 +589,14 @@
                     <input type="text" id="infOperador2" placeholder="TDP">
                 </div>
 			<!-- BOTON VOLVER/CONTINUAR -->
-			<button type="button" class="btn-volver">Volver</button>
+			<button type="button" class="btn btn-volver">Volver</button>
 			<button type="button" class="btn btn-primary btn-continuar">Continuar</button>
 			<!-- BOTON VOLVER/CONTINUAR -->
             </div>
 
-            <!-- SECCIÓN 10: TRABAJOS ADICIONALES -->
+            <!-- SECCI脫N 10: TRABAJOS ADICIONALES -->
             <div class="section">
-                <h2>📝 ADICIONALES</h2>
+                <h2>馃摑 ADICIONALES</h2>
                 <div class="form-group">
                     <textarea id="trabajosAdicionales" rows="3" placeholder="Observaciones, incidencias, etc."></textarea>
                 </div>
@@ -594,7 +605,7 @@
                     <input type="text" id="resultadoFinal" value="PREDIO_PEXT_HABILITADO">
                 </div>
 			<!-- BOTON VOLVER/CONTINUAR -->
-			<button type="button" class="btn-volver">Volver</button>
+			<button type="button" class="btn btn-volver">Volver</button>
 			<button type="button" class="btn btn-procesar btn-continuar">Procesar Datos</button>
 			<!-- BOTON VOLVER/CONTINUAR -->
             </div>
@@ -605,14 +616,14 @@
             TOTAL EMPALMES: 0
         </div>
 
-        <!-- BOTÓN GENERAR -->
-        <button class="btn btn-success" onclick="generarTexto()">📄 GENERAR TEXTO</button>
+        <!-- BOT脫N GENERAR -->
+        <button class="btn btn-success" onclick="generarTexto()">馃搫 GENERAR TEXTO</button>
 
-        <!-- SECCIÓN DE RESULTADO -->
+        <!-- SECCI脫N DE RESULTADO -->
         <div class="output-section">
-            <h2>📋 TEXTO GENERADO</h2>
+            <h2>馃搵 TEXTO GENERADO</h2>
             <div id="outputText"></div>
-            <button class="copy-btn" onclick="copiarTexto()">📋 COPIAR</button>
+            <button class="copy-btn" onclick="copiarTexto()">馃搵 COPIAR</button>
         </div>
     </div>
 
