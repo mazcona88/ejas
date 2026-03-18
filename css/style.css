@@ -264,6 +264,11 @@ textarea {
 	gap: 5px;
 }
 .radio-option input[type="radio"] {
+    appearance: auto;
+    -webkit-appearance: radio;
+}
+
+.radio-option input[type="radio"] {
 	width: auto;
 	margin: 0;
 	height: 18px;
