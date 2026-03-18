@@ -253,7 +253,14 @@ function agregarNap() {
 			<h3>NAP #${index + 1}</h3>
 			<button class="btn btn-danger" onclick="eliminarNap(${index})">X</button>
 		</div>
-		<input type="text" id="napTipo_${index}" placeholder="Tipo">
+		<select id="napTipo_${index}"">
+								<option value="">-- Seleccionar --</option>
+								<option value="Dixon">DIXON</option>
+								<option value="Blanca">BLANCA</option>
+								<option value="Ploma">PLOMA</option>
+							</select>
+		
+		
 		<input type="text" id="napCodigo_${index}" placeholder="Código" onchange="calcularTotalNaps()">
 		<div class="inline-group">
 			<input type="text" id="napPiso_${index}" placeholder="Piso">
