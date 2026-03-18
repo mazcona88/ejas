@@ -160,7 +160,12 @@
                     </div>
                     <div class="form-group">
                         <label>ACCESO:</label>
-                        <input type="text" id="jumpeoAcceso" value="REMOTO" readonly>
+						<select id="jumpeoAcceso">
+                            <option value="">-- Seleccionar --</option>
+                            <option value="Remoto">REMOTO</option>
+                            <option value="Presencial">PRESENCIAL</option>
+                            <option value="Recojo de llave">RECOJO DE LLAVE</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>VISITAS A NODO:</label>
@@ -411,7 +416,12 @@
                         </div>
                         <div class="form-group">
                             <label>TIPO:</label>
-                            <input type="text" id="napTipo_0" placeholder="DIXON o BLANCA">
+							<select id="napTipo_0">
+								<option value="">-- Seleccionar --</option>
+								<option value="Dixon">DIXON</option>
+								<option value="Blanca">BLANCA</option>
+								<option value="Ploma">PLOMA</option>
+							</select>
                         </div>
                         <div class="form-group">
                             <label>CÓDIGO:</label>
@@ -441,7 +451,7 @@
                     TOTAL NAPS: 0
                 </div>
                 
-                <h3 style="margin-top: 15px;"> PREPARAción NAPS</h3>
+                <h3 style="margin-top: 15px;"> PREPARACION NAPS</h3>
                 <div class="inline-group">
                     <div class="form-group">
                         <label>PUNTA:</label>
@@ -569,7 +579,7 @@
 
             <!-- SECCION 9: INFRAESTRUCTURA DE TERCEROS -->
             <div class="section">
-                <h2> INFRAESTRUCTURA TERCEROS</h2>
+                <h2> INFRAESTRUCTURA TERCEROS (postes)</h2>
                 <div class="inline-group">
                     <div class="form-group">
                         <label>POSTES:</label>
@@ -577,7 +587,15 @@
                     </div>
                     <div class="form-group">
                         <label>OPERADOR:</label>
-                        <input type="text" id="infOperador1" placeholder="CLARO">
+						<select id="infOperador1">
+							<option value="">-- Seleccionar --</option>
+                            <option value="Claro">CLARO</option>
+                            <option value="Movistar">MOVISTAR</option>
+                            <option value="Optical Networks">OPTICAL NETKWORKS</option>
+							<option value="Luz del Sur">LUZ DEL SUR</option>
+							<option value="Propio">PROPIO</option>
+							<option value="Otros">OTROS</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
@@ -586,7 +604,14 @@
                 </div>
                 <div class="form-group">
                     <label>OPERADOR:</label>
-                    <input type="text" id="infOperador2" placeholder="TDP">
+					<select id="infOperador2">
+						<option value="">-- Seleccionar --</option>
+						<option value="Tdp">TDP</option>
+						<option value="Claro">CLARO</option>
+						<option value="Canalizado Nuevo">CANALIZADO NUEVO</option>
+						<option value="Cala">CALA</option>
+						<option value="Otros">OTROS</option>
+					</select>
                 </div>
 			<!-- BOTON VOLVER/CONTINUAR -->
 			<button type="button" class="btn btn-volver">Volver</button>
@@ -602,7 +627,12 @@
                 </div>
                 <div class="form-group">
                     <label>RESULTADO:</label>
-                    <input type="text" id="resultadoFinal" value="PREDIO_PEXT_HABILITADO">
+					<select id="resultadoFinal">
+						<option value="">-- Seleccionar --</option>
+						<option value="Predio pext habilitado">PREDIO PEXT HABILITADO</option>
+						<option value="Predio en proceso">PREDIO EN PROCESO</option>
+						<option value="Predio cancelado">PREDIO CANCELADO</option>
+					</select>
                 </div>
 			<!-- BOTON VOLVER/CONTINUAR -->
 			<button type="button" class="btn btn-volver">Volver</button>
